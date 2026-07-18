@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scriptly | منصة تعليم البرمجة</title>
+    <link rel="icon" type="image/x-icon" href="images/fav.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="sticky-top bg-white py-3 shadow-sm">
+        <nav class="navbar navbar-expand-lg" aria-label="التنقل الرئيسي">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <span class="brand-dot"></span>
+                    <span class="fw-bold text-dark fs-4">Scriptly</span>
+                </a>
+                
+                <div class="d-flex align-items-center gap-3">
+
+                    <div class="theme-switch" id="themeToggle">
+                        <div class="toggle-circle">
+                            <i class="bi bi-sun-fill"></i>
+                        </div>
+                        <i class="bi bi-moon-fill moon-icon"></i>
+                    </div>
+
+                    <button class="navbar-toggler border-0" type="button" onclick="toggleMobileMenu()" id="hamburgerBtn" aria-label="فتح القائمة">
+                        <span class="hamburger-line line1"></span>
+                        <span class="hamburger-line line2"></span>
+                        <span class="hamburger-line line3"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse d-none d-lg-flex justify-content-between align-items-center">
+                    <ul class="navbar-nav mx-auto gap-4">
+                        <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#courses">الكورسات</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#roadmap">خارطة الطريق</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup">انضم إلينا</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <a href="#signup" class="btn btn-primary-pill">ابدأ التعلم الآن</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="mobile-drawer d-lg-none" id="mobileDrawer" aria-label="قائمة الهاتف">
+        <div class="drawer-content p-4 d-flex flex-column gap-4 text-center">
+            <nav aria-label="التنقل عبر الهاتف">
+                <ul class="list-unstyled d-flex flex-column gap-3 fs-5">
+                    <li><a href="#" class="text-dark text-decoration-none" onclick="toggleMobileMenu()">الرئيسية</a></li>
+                    <li><a href="#courses" class="text-dark text-decoration-none" onclick="toggleMobileMenu()">الكورسات</a></li>
+                    <li><a href="#roadmap" class="text-dark text-decoration-none" onclick="toggleMobileMenu()">خارطة الطريق</a></li>
+                    <li><a href="#signup" class="text-dark text-decoration-none" onclick="toggleMobileMenu()">انضم إلينا</a></li>
+                </ul>
+            </nav>
+            <a href="#signup" class="btn btn-primary-pill mt-3" onclick="toggleMobileMenu()">ابدأ التعلم الآن</a>
+        </div>
+    </aside>
+
+    <main>
+        
+        <section class="hero-section d-flex align-items-center" aria-label="مقدمة ترحيبية">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <h1 class="display-4 fw-bold text-dark mb-3">ابنِ مهارات حقيقية.<br><span class="text-gradient">أطلق مستقبلك البرمجي.</span></h1>
+                        <p class="lead text-muted mb-4">انضم إلى مجتمعنا التعليمي التفاعلي، وتعلم أحدث التقنيات البرمجية من خلال مشاريع عملية حقيقية وخارطة طريق واضحة.</p>
+                        <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+                            <a href="#courses" class="btn btn-primary-pill d-flex align-items-center gap-2">
+                                <i class="bi bi-rocket-takeoff-fill"></i> تصفح الكورسات
+                            </a>
+                            <a href="#signup" class="btn btn-secondary-pill d-flex align-items-center gap-2">
+                                <i class="bi bi-person-plus"></i> سجل مجاناً
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="aspect-ratio-wrapper rounded-4 shadow-lg overflow-hidden m-0 bg-light-subtle text-dark" id="heroAnimationContainer">
+                            <h1 id="element"></h1>
+                        </figure>
+                    </div>
+                </div>
+            </div> 
+        </section>
+
+        <section class="courses-section py-5 bg-light" id="courses" aria-labelledby="courses-heading">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-2 fw-semibold">مساراتنا التعليمية</span>
+                    <h2 id="courses-heading" class="fw-bold text-dark">الكورسات الأكثر طلباً</h2>
+                </div>
+
+                <div class="slider-container position-relative">
+                    <button class="slider-arrow prev" onclick="scrollSlider(-1)" aria-label="الكورس السابق">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                    
+                    <div class="course-slider-track d-flex gap-4" id="courseSlider"></div>
+
+                    <button class="slider-arrow next" onclick="scrollSlider(1)" aria-label="الكورس التالي">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-dots d-flex justify-content-center gap-2 mt-4">
+                    <span class="slider-dot active" onclick="jumpToSlide(0)" aria-label="شريحة 1"></span>
+                    <span class="slider-dot" onclick="jumpToSlide(1)" aria-label="شريحة 2"></span>
+                    <span class="slider-dot" onclick="jumpToSlide(2)" aria-label="شريحة 3"></span>
+                    <span class="slider-dot" onclick="jumpToSlide(3)" aria-label="شريحة 4"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="roadmap-section py-5" id="roadmap" aria-labelledby="roadmap-heading">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-2 fw-semibold">خطوتك بخطوة</span>
+                    <h2 id="roadmap-heading" class="fw-bold text-dark">خارطة طريق التعلم لدينا</h2>
+                </div>
+
+                <div class="timeline-container position-relative mx-auto" style="max-width: 800px;">
+                    <div class="timeline-line"></div>
+
+                    <article class="timeline-step d-flex align-items-center gap-4 mb-5 position-relative">
+                        <div class="step-number gradient-circle">1</div>
+                        <div class="step-card bg-white p-4 shadow-sm flex-grow-1 rounded-4 border">
+                            <h3 class="h5 fw-bold text-dark mb-2"><i class="bi bi-rocket-takeoff me-2"></i>الأساسيات (Foundations)</h3>
+                            <p class="text-muted mb-0">تعلم المبادئ والأساسيات التقنية الأولى وقم بتهيئة بيئة العمل والتطوير الخاصة بك.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-step d-flex align-items-center gap-4 mb-5 position-relative">
+                        <div class="step-number gradient-circle">2</div>
+                        <div class="step-card bg-white p-4 shadow-sm flex-grow-1 rounded-4 border">
+                            <h3 class="h5 fw-bold text-dark mb-2"><i class="bi bi-code-slash me-2"></i>المفاهيم المحورية (Core Concepts)</h3>
+                            <p class="text-muted mb-0">افهم بعمق آليات العمل الأساسية لكيفية تحريك البيانات وتصميم المنطق البرمجي السليم.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-step d-flex align-items-center gap-4 mb-5 position-relative">
+                        <div class="step-number gradient-circle">3</div>
+                        <div class="step-card bg-white p-4 shadow-sm flex-grow-1 rounded-4 border">
+                            <h3 class="h5 fw-bold text-dark mb-2"><i class="bi bi-laptop me-2"></i>بناء المشاريع (Build Projects)</h3>
+                            <p class="text-muted mb-0">طبق كل ما تعلمته عملياً عبر بناء وتنسيق تطبيقات ومواقع ويب حقيقية تحاكي سوق العمل.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-step d-flex align-items-center gap-4 position-relative">
+                        <div class="step-number gradient-circle">4</div>
+                        <div class="step-card bg-white p-4 shadow-sm flex-grow-1 rounded-4 border">
+                            <h3 class="h5 fw-bold text-dark mb-2"><i class="bi bi-graph-up-arrow me-2"></i>الارتقاء للمستوى التالي (Level Up)</h3>
+                            <p class="text-muted mb-0">زد من عمق خبراتك البرمجية وحسّن سير عملك باستخدام تقنيات الأتمتة المتقدمة.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="signup-section py-5 bg-light" id="signup" aria-labelledby="signup-heading">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="signup-card bg-white p-5 rounded-4 shadow-lg border">
+                            <div class="text-center mb-4">
+                                <h2 id="signup-heading" class="fw-bold text-dark">ابدأ رحلتك اليوم</h2>
+                                <p class="text-muted">قم بإنشاء حسابك المجاني واستمتع بالوصول لجميع الدروس التفاعلية.</p>
+                            </div>
+                            <form id="registrationForm" onsubmit="handleFormSubmit(event)">
+                                <fieldset class="border-0 p-0 m-0">
+                                    <legend class="visually-hidden">نموذج التسجيل لإنشاء حساب</legend>
+                                    <div class="mb-3">
+                                        <label for="fullName" class="form-label fw-semibold text-dark">الاسم الكامل</label>
+                                        <input type="text" class="form-control" id="fullName" placeholder="اسمك الثنائي أو الثلاثي" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label fw-semibold text-dark">البريد الإلكتروني</label>
+                                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label fw-semibold text-dark">كلمة المرور</label>
+                                        <input type="password" class="form-control" id="password" placeholder="أدخل كلمة مرور قوية" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="experience" class="form-label fw-semibold text-dark">مستوى خبرتك البرمجية</label>
+                                        <select class="form-select" id="experience">
+                                            <option value="beginner">مبتدئ كلياً</option>
+                                            <option value="intermediate">لدي بعض الأساسيات</option>
+                                            <option value="advanced">مطور محترف</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary-pill w-100 py-3">أنشئ حسابي الآن</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <p class="mb-2">© 2026 SkillUp. جميع الحقوق محفوظة.</p>
+            <nav class="d-flex justify-content-center gap-3" aria-label="روابط شبكات التواصل الاجتماعي">
+                <a href="#" class="text-muted text-white-50" aria-label="حساب فيسبوك"><i class="bi bi-facebook fs-5"></i></a>
+                <a href="#" class="text-muted text-white-50" aria-label="حساب إكس تويتر سابقا"><i class="bi bi-twitter-x fs-5"></i></a>
+                <a href="#" class="text-muted text-white-50" aria-label="حساب لينكد إن"><i class="bi bi-linkedin fs-5"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        let typed = new Typed('#element', {
+        strings: [
+            'أهلاً بك في عالم البرمجة.',
+            'تعلّم، طبّق، وابتكر.',
+            'ابدأ مستقبلك البرمجي الآن!'
+        ],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        }); 
+    </script>
+</body>
+</html>
